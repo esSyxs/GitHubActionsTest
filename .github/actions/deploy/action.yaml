@@ -28,5 +28,5 @@ runs:
       working-directory: p-greetings
       run: |
         echo "Starting greetings-app-dev on por ${{ inputs.port }}"
-        pm2 start app.py --name greetings-app-${{ inputs.env }} --port ${{ inputs.port }}
+        pm2 start app.py --name greetings-app-${{ inputs.env }} -- --port ${{ inputs.port }}
       shell: cmd
