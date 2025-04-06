@@ -50,6 +50,7 @@ jobs:
         uses: ./.github/actions/test
         with:
           env: dev
+
   deploy-to-staging:
     needs: tests-on-dev
     runs-on: [self-hosted]
