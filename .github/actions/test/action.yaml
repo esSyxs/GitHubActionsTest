@@ -22,7 +22,7 @@ runs:
         npm install
       shell: cmd
     - name: Run API tests on ${{ inputs.env }} environment
-      working-directory: course-framework
+      working-directory: cf
       run: |
         echo "running tests on ${{ inputs.env }}"
         npm run greetings greetings_${{ inputs.env }}
