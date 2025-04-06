@@ -19,13 +19,13 @@ runs:
         repository: mtararujs/python-greetings
         path: p-greetings
     - name: Stop greetings-app-${{ inputs.env }}
-      working-directory: python-greetings
+      working-directory: p-greetings
       run: |
         echo "PM2 delete"
         pm2 delete greetings-app-${{ inputs.env }}  & set "errorlevel=0"
       shell: cmd
     - name: Start greetings-app-dev on port ${{ inputs.port }}
-      working-directory: python-greetings
+      working-directory: p-greetings
       run: |
         echo "Starting greetings-app-dev on por ${{ inputs.port }}"
         pm2 start app.py --name greetings-app-${{ inputs.env }} --port ${{ inputs.port }}
