@@ -31,7 +31,7 @@ jobs:
       - name: Deploying to dev environment
         run: echo "Deploying deps"
       - name: Setup dev
-        uses: .\.github\actions\deploy.yaml
+        uses: ./.github/actions/deploy.yaml
         with:
           env: dev
           port: 7001 
@@ -43,7 +43,7 @@ jobs:
       - name: Running tests on dev
         run: echo "Running tests in dev"
       - name: Test dev
-        uses: .\.github\actions\test.yaml
+        uses: ./.github/actions/test.yaml
         with:
           env: dev
   deploy-to-staging:
@@ -53,7 +53,7 @@ jobs:
       - name: Deploying to staging
         run: echo "Deploying to stage env"
       - name: Setup staging
-        uses: .\.github\actions\deploy.yaml
+        uses: ./.github/actions/deploy.yaml
         with:
           env: staging
           port: 7002
@@ -65,7 +65,7 @@ jobs:
       - name: Running tests on staging
         run: echo "Running tests in stage"
       - name: Test staging
-        uses: .\.github\actions\test.yaml
+        uses: ./.github/actions/test.yaml
         with:
           env: staging
 
@@ -76,7 +76,7 @@ jobs:
       - name: Deploying to pre-production
         run: echo "Deploying to pre-prodd env"
       - name: Setup preprod
-        uses: .\.github\actions\deploy.yaml
+        uses: ./.github/actions/deploy.yaml
         with:
           env: preprod
           port: 7003
@@ -88,7 +88,7 @@ jobs:
       - name: Running tests on pre-production
         run: echo "Running tests in pre-prod env"
       - name: Test preprod
-        uses: .\.github\actions\test.yaml
+        uses: ./.github/actions/test.yaml
         with:
           env: preprod
 
@@ -99,7 +99,7 @@ jobs:
       - name: Deploying to production
         run: echo "Deploying to prod"
       - name: Setup prod
-        uses: .\.github\actions\deploy.yaml
+        uses: ./.github/actions/deploy.yaml
         with:
           env: prod
           port: 7004
@@ -111,6 +111,6 @@ jobs:
       - name: Running tests on production
         run: echo "Running tests in prod"
       - name: Test Prod
-        uses: .\.github\actions\test.yaml
+        uses: ./.github/actions/test.yaml
         with:
           env: prod
