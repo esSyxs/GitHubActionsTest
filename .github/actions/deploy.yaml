@@ -1,0 +1,30 @@
+name: Deploy Python Greetings App
+description: |
+  Setss up python-greetings repository, and starts it on specified port for specific env.
+inputs:
+  env:
+    description: Target environment (dev, staging, preprod, prod)
+    required: true
+  port:
+    description: Port number to run the app on (7001–7004)
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: use checkout@4
+      uses: actions/checkout@v4
+    - name: Checkout python-greetings repository
+      uses: actions/checkout@v4
+      with:
+        repository: mtararujs/python-greetings
+        path: p-greetings
+    - name: Stop greetings-app-${{ inputs.env }}
+      working-directory: python-greetings
+      run: |
+        echo "PM2 delete"
+        pm2 delete greetings-app-${{ inputs.env }}  & set "errorlevel=0"
+    - name: Start greetings-app-dev on port ${{ inputs.port }}
+      working-directory: python-greetings
+      run: |
+        echo "Starting greetings-app-dev on por ${{ inputs.port }}"
+        pm2 start app.py --name greetings-app-${{ inputs.env }} --port ${{ inputs.port }}
