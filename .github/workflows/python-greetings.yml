@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Installing dependencies
         run: echo "Installing deps"
+        shell: cmd
       - name: use checkout@4
         uses: actions/checkout@v4
       - name: Checking out pgreetings
@@ -23,6 +24,7 @@ jobs:
         run: |
           echo "Installing req depps from requirements.txt..."
           pip3 install -r requirements.txt
+        shell: cmd
 
   deploy-to-dev:
     needs: install-pip-deps
@@ -30,6 +32,7 @@ jobs:
     steps:
       - name: Deploying to dev environment
         run: echo "Deploying deps"
+        shell: cmd
       - name: Setup dev
         uses: ./.github/actions/deploy
         with:
@@ -42,6 +45,7 @@ jobs:
     steps:
       - name: Running tests on dev
         run: echo "Running tests in dev"
+        shell: cmd
       - name: Test dev
         uses: ./.github/actions/test
         with:
@@ -52,6 +56,7 @@ jobs:
     steps:
       - name: Deploying to staging
         run: echo "Deploying to stage env"
+        shell: cmd
       - name: Setup staging
         uses: ./.github/actions/deploy
         with:
@@ -64,6 +69,7 @@ jobs:
     steps:
       - name: Running tests on staging
         run: echo "Running tests in stage"
+        shell: cmd
       - name: Test staging
         uses: ./.github/actions/test
         with:
@@ -75,6 +81,7 @@ jobs:
     steps:
       - name: Deploying to pre-production
         run: echo "Deploying to pre-prodd env"
+        shell: cmd
       - name: Setup preprod
         uses: ./.github/actions/deploy
         with:
@@ -87,6 +94,7 @@ jobs:
     steps:
       - name: Running tests on pre-production
         run: echo "Running tests in pre-prod env"
+        shell: cmd
       - name: Test preprod
         uses: ./.github/actions/test
         with:
@@ -98,6 +106,7 @@ jobs:
     steps:
       - name: Deploying to production
         run: echo "Deploying to prod"
+        shell: cmd
       - name: Setup prod
         uses: ./.github/actions/deploy
         with:
@@ -110,6 +119,7 @@ jobs:
     steps:
       - name: Running tests on production
         run: echo "Running tests in prod"
+        shell: cmd
       - name: Test Prod
         uses: ./.github/actions/test
         with:

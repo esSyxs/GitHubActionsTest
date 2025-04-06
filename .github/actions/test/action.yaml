@@ -20,8 +20,10 @@ runs:
       run: |
         echo "NPM dep install"
         npm install
+      shell: cmd
     - name: Run API tests on ${{ inputs.env }} environment
       working-directory: course-framework
       run: |
         echo "running tests on ${{ inputs.env }}"
         npm run greetings greetings_${{ inputs.env }}
+      shell: cmd
